@@ -1,0 +1,28 @@
+.masthead {
+    height: 100vh;
+    min-height: 500px;
+    /* background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080'); */
+    background: linear-gradient(to right, #f7f7f8, #cfe8fa);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .register-item {
+    width: 100px;
+    background-color: white;
+    box-shadow: 5px 9px rgb(200, 172, 245);
+  }
+
+  .register-item:hover {
+    box-shadow: 9px 5px rgb(200, 172, 245);
+  }
+
+  .col-12 {
+      padding: 30px;
+      background-color: rgb(196, 228, 230);
+  }
+
+  .register-link {
+    color: black;
+  }
