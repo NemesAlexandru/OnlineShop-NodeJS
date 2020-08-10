@@ -4,7 +4,9 @@ const express = require('express');
 const { route } = require('.');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
+const passport = require('passport');
 
+//User model
 const User = require('../models/User');
 
 //Login Page
@@ -84,5 +86,13 @@ bcrypt.genSalt(10, (err, salt) => bcrypt.hash(newUser.password, salt,
 
 });
 
+//Login handle
+router.post('/login', (req, res, next) => {
+passport.authenticate('local', {
+    successRedirect: '/dashboard',
+    failureRedirect: '/users/login',
+    failureFlash: true
+})(req, res, next);
+});
 
 module.exports = router;
