@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV !== 'production'){
+  require('dotenv').config();
+};
+
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
@@ -11,9 +15,15 @@ const app = express();
 require('./config/passport')(passport);
 
 //DB config
-const db = require('./config/keys').MongoURI;
+
+const DB_HOST = process.env.DB_HOST;
+const DB_NAME = process.env.DB_NAME;
+const DB_USER = process.env.DB_USER;
+const DB_PASS = process.env.DB_PASS;
+const db = `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`
 
 //Connect to Mongo
+
 mongoose.connect(db, { useUnifiedTopology: true, 
     useNewUrlParser: true }).then(() => 
     console.log('MongoDB connected...')).catch(err => console.log(err));
