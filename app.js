@@ -3,6 +3,7 @@ if(process.env.NODE_ENV !== 'production'){
 };
 
 const express = require('express');
+const bodyParser = require("body-parser");
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
@@ -34,6 +35,7 @@ app.set('view engine', 'ejs');
 
 //Bodyparser
 app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //Express session middleware
 app.use(session({
@@ -61,7 +63,7 @@ app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
-
+app.use('/products', require('./routes/products'));
 
 const PORT = process.env.PORT || 3000;
 
