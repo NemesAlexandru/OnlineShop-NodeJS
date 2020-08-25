@@ -12,7 +12,7 @@ router.post('/addProduct', (req, res) => {
     Product.findOne({ name: name }).then(prod => {
         //if product exists
         if(prod) {
-res.send('Product already in DB');
+            res.status(400).json({ message: "Product already in DB" })
         } else {
             const newProduct = new Product({
                 name,
