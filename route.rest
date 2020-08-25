@@ -1,0 +1,23 @@
+POST http://localhost:3000/products/addProduct
+Content-Type: application/json
+
+{
+"name": "Iphone X",
+"imageURL": "https://www.aarons.com/dw/image/v2/BBZS_PRD/on/demandware.static/-/Sites-aarons_master/default/dw3bf98e7c/Electronics/G100919_01.jpg?sw=1350&sh=1000&sm=fit",
+"price": 4900,
+"description": "New Iphone X",
+"category": "Smartphone"
+}
+
+###
+
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+"name": "testrest",
+"email": "sss@gmail.com",
+"password": "123456",
+"password2": "123456"
+}
+
