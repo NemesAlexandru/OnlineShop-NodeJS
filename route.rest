@@ -21,3 +21,6 @@ Content-Type: application/json
 "password2": "123456"
 }
 
+###
+
+GET http://localhost:3000/products/items

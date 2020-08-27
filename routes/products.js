@@ -3,6 +3,7 @@
 const express = require('express');
 const { route } = require('.');
 const { ensureAuthenticated } = require('../config/auth');
+const productController = require('../controllers/product');
 const router = express.Router();
 
 //Product model
@@ -59,6 +60,9 @@ if(errors.length > 0){
     
 
 })
+
+//Route to display all products in product controller
+router.get('/items', productController.getAllProducts);
 
     module.exports = router
 
