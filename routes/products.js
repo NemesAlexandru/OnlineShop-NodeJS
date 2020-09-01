@@ -64,6 +64,8 @@ if(errors.length > 0){
 //Route to display all products in product controller
 router.get('/items', productController.getAllProducts);
 
+
+
     module.exports = router
 
 

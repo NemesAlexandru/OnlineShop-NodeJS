@@ -66,6 +66,10 @@ app.use('/users', require('./routes/users'));
 app.use('/products', require('./routes/products'));
 app.use('/carts', require('./routes/carts'));
 
+// app.get('/carts/addUpdateCart', function (req, res) {
+// res.json(req.user._id);
+// });
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, console.log(`Server started on ${PORT}`));

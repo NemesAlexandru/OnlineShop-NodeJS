@@ -7,27 +7,29 @@ const Cart = require('../models/Cart');
 
 
 router.post("/addUpdateCart", async (req, res) => {
-    const { productId, quantity, name, price } = req.body;
+    const { _id, quantity, name, price } = req.body;
   
-    // const userId = "5de7ffa74fff640a0491bc4f";  
+    const userId = req.user._id;
+
     //TODO: the logged in user id
-    const userId = req.user.userId;
-  
+    // const userId = req.user.userId;
+    // const userId = passController.getUserId;
+
     try {
       let cart = await Cart.findOne({ userId });
   
       if (cart) {
         //cart exists for user
-        let itemIndex = cart.products.findIndex(p => p.productId == productId);
+        let itemIndex = cart.products.findIndex(p => p._id == _id);
   
         if (itemIndex > -1) {
           //product exists in the cart, update the quantity
           let productItem = cart.products[itemIndex];
-          productItem.quantity = quantity;
+          productItem.quantity += 1;
           cart.products[itemIndex] = productItem;
         } else {
           //product does not exists in cart, add new item
-          cart.products.push({ productId, quantity, name, price });
+          cart.products.push({ _id, quantity, name, price });
         }
         cart = await cart.save();
         return res.status(201).send(cart);
@@ -35,7 +37,7 @@ router.post("/addUpdateCart", async (req, res) => {
         //no cart for user, create new cart
         const newCart = await Cart.create({
           userId,
-          products: [{ productId, quantity, name, price }]
+          products: [{ _id, quantity, name, price }]
         });
   
         return res.status(201).send(newCart);

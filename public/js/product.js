@@ -10,14 +10,34 @@ window.Shop = {
       });
     },
 
-    // bindEvents: function () {
-    //     $(".single-product-area").delegate(".add_to_cart_button", "click", function (event) {
-    //         event.preventDefault();
-    //         let productId = $(this).data("product_id");
+    bindEvents: function () {
+      $(".py-5").delegate(".add-to-cart", "click", function (event) {
+          event.preventDefault();
+          let productId = $(this).data("product_id");
+          let productName = $(this).data("product_name");
+          let productPrice = $(this).data("product_price");
+          let productQuantity = 1;
+          Shop.addToCart(productId, productName, productPrice, productQuantity);
+          // window.location.replace("single-product.html?product-id=" + productId);
+      })
+  },
 
-    //         window.location.replace("single-product.html?product-id=" + productId);
-    //     })
-    // },
+  addToCart: function(productId, productName, productPrice, productQuantity) {
+    $.ajax({
+      //ajax method: "POST"
+      type: "POST",
+      url: Shop.API_BASE_URL + "/carts/addUpdateCart",
+      data: {
+        _id: productId,
+        quantity: productQuantity,
+        name: productName,
+        price: productPrice
+      }
+  }).done(function (response) {
+    console.log(response);
+    alert('Success');
+});
+  },
 
     getProductsHtml: function (product) {
         return `<div class="col-lg-4 col-md-6 mb-4">
@@ -32,7 +52,7 @@ window.Shop = {
             <a href="#">${product.category}</a>
           </div>
           <div class="card-footer">
-            <p><button class="add-to-cart">Add to Cart</button></p>           
+            <p><button class="add-to-cart" data-product_id=${product._id} data-product_name=${product.name} data-product_price=${product.price}>Add to Cart</button></p>           
           </div>
         </div>
       </div>`
@@ -47,4 +67,4 @@ window.Shop = {
 };
 
 Shop.getProducts();
-// Shop.bindEvents();
+Shop.bindEvents();

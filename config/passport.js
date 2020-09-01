@@ -35,6 +35,7 @@ bcrypt.compare(password, user.password, (err, isMatch) => {
     );
     passport.serializeUser((user, done) => {
         done(null, user.id);
+        // console.log(user.id)
       });
       
       passport.deserializeUser((id, done) => {
@@ -43,4 +44,4 @@ bcrypt.compare(password, user.password, (err, isMatch) => {
         });
       });
     
-}
+};
