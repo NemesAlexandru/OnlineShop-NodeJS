@@ -1,6 +1,7 @@
 const express = require('express');
 const { route } = require('.');
 const router = express.Router();
+const cartController = require('../controllers/cart');
 
 //Cart model
 const Cart = require('../models/Cart');
@@ -10,10 +11,6 @@ router.post("/addUpdateCart", async (req, res) => {
     const { _id, quantity, name, price } = req.body;
   
     const userId = req.user._id;
-
-    //TODO: the logged in user id
-    // const userId = req.user.userId;
-    // const userId = passController.getUserId;
 
     try {
       let cart = await Cart.findOne({ userId });
@@ -48,4 +45,7 @@ router.post("/addUpdateCart", async (req, res) => {
     }
   });
 
-  module.exports = router;
+  //Route to get cart for logged in userID
+router.get('/getCart', cartController.getCart);
+
+module.exports = router;

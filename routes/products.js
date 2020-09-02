@@ -65,7 +65,6 @@ if(errors.length > 0){
 router.get('/items', productController.getAllProducts);
 
 
-
     module.exports = router
 
 

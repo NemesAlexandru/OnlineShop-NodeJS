@@ -10,6 +10,40 @@ window.Shop = {
       });
     },
 
+    getCart: function () {
+      $.ajax({
+          url: Shop.API_BASE_URL + "/carts/getCart"
+          //default ajax method: "GET"
+      }).done(function (response) {
+        Shop.displayCart(response.products)
+    });
+  },
+
+  displayCart: function(cartItems) {
+    var cartItemsHtml = "";
+    cartItems.forEach(oneItem => cartItemsHtml += Shop.getCartHtml(oneItem));
+    $(cartItemsHtml).insertBefore(".divider");
+
+  },
+
+  getCartHtml: function (cartItem) {
+    return `<li>
+    <span class="item">
+      <span class="item-left">
+          <img src="" alt="" />
+          <span class="item-info">
+              <span>${cartItem.name} - ${cartItem.price}$</span>
+              <span>Quantity: ${cartItem.quantity}</span>
+          </span>
+      </span>
+      <span class="item-right">
+          <button class="btn btn-xs btn-danger pull-right">x</button>
+      </span>
+  </span>
+</li>`
+},
+
+
     bindEvents: function () {
       $(".py-5").delegate(".add-to-cart", "click", function (event) {
           event.preventDefault();
@@ -35,7 +69,8 @@ window.Shop = {
       }
   }).done(function (response) {
     console.log(response);
-    alert('Success');
+    location.reload();
+    alert('Added to cart');
 });
   },
 
@@ -68,3 +103,4 @@ window.Shop = {
 
 Shop.getProducts();
 Shop.bindEvents();
+Shop.getCart();
