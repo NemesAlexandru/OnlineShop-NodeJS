@@ -48,4 +48,7 @@ router.post("/addUpdateCart", async (req, res) => {
   //Route to get cart for logged in userID
 router.get('/getCart', cartController.getCart);
 
+//Route to delete cart
+router.delete('/deleteCart', cartController.deleteCart);
+
 module.exports = router;

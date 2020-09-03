@@ -19,6 +19,16 @@ window.Shop = {
     });
   },
 
+  deleteCart: function () {
+    $.ajax({
+        url: Shop.API_BASE_URL + "/carts/deleteCart",
+        method: "DELETE"
+    }).done(function (response) {
+      location.reload();
+      alert('Deleted cart');
+  });
+},
+
   displayCart: function(cartItems) {
     var cartItemsHtml = "";
     cartItems.forEach(oneItem => cartItemsHtml += Shop.getCartHtml(oneItem));
@@ -54,6 +64,13 @@ window.Shop = {
           Shop.addToCart(productId, productName, productPrice, productQuantity);
           // window.location.replace("single-product.html?product-id=" + productId);
       })
+  },
+
+  bindEmptyCart: function() {
+    $("#navbar-parent-ul").delegate("#empty-cart-button", "click", function (event) {
+      event.preventDefault();
+      Shop.deleteCart();
+  })
   },
 
   addToCart: function(productId, productName, productPrice, productQuantity) {
@@ -104,3 +121,4 @@ window.Shop = {
 Shop.getProducts();
 Shop.bindEvents();
 Shop.getCart();
+Shop.bindEmptyCart();
