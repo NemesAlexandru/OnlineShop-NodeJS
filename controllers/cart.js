@@ -38,7 +38,7 @@ exports.deleteCartItem = async (req, res) => {
       }
       cart.save();
       return res.status(201).send('Decreased quantity');
-    }catch (err) {
+    } catch (err) {
         res.status(500).json({ message: err.message });
         };
 };

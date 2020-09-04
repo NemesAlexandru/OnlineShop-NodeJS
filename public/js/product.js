@@ -1,12 +1,26 @@
 window.Shop = {
     API_BASE_URL: "http://localhost:3000",
 
+    numberOfCartProducts: function (products) {
+    const cartNoElement = document.querySelector('[data-item-number]');
+    const cartTotalElement = document.querySelector('[data-item-total]');
+    let total = 0;
+    let count = 0;
+    products.forEach(el => {
+    let quant = el.quantity;
+    total += (el.quantity * el.price);
+    count += quant;
+    })
+    cartNoElement.textContent = count;
+    cartTotalElement.textContent = `Total: ${total}$`;
+    },
+
     getProducts: function () {
         $.ajax({
             url: Shop.API_BASE_URL + "/products/items"
             //default ajax method: "GET"
         }).done(function (response) {
-          Shop.displayProducts(response);
+          Shop.displayProducts(response);        
       });
     },
 
@@ -15,7 +29,8 @@ window.Shop = {
           url: Shop.API_BASE_URL + "/carts/getCart"
           //default ajax method: "GET"
       }).done(function (response) {
-        Shop.displayCart(response.products)
+        Shop.displayCart(response.products);
+        Shop.numberOfCartProducts(response.products);
     });
   },
 
@@ -33,7 +48,6 @@ window.Shop = {
     var cartItemsHtml = "";
     cartItems.forEach(oneItem => cartItemsHtml += Shop.getCartHtml(oneItem));
     $(cartItemsHtml).insertBefore(".divider");
-
   },
 
   getCartHtml: function (cartItem) {
@@ -141,3 +155,4 @@ Shop.bindEvents();
 Shop.getCart();
 Shop.bindEmptyCart();
 Shop.bindCartDelete();
+Shop.numberOfCartProducts();
