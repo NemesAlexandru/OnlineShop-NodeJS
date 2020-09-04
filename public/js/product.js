@@ -47,10 +47,28 @@ window.Shop = {
           </span>
       </span>
       <span class="item-right">
-          <button class="btn btn-xs btn-danger pull-right">x</button>
+          <button class="btn btn-xs btn-danger pull-right" id="cart-item-delete" data-item_id=${cartItem._id}>-</button>
       </span>
   </span>
 </li>`
+},
+
+bindCartDelete: function(){
+  $("#navbar-parent-ul").delegate("#cart-item-delete", "click", function (event) {
+    event.preventDefault();
+    let id = $(this).data("item_id");
+    Shop.deleteItem(id);
+})
+},
+
+deleteItem: function (id) {
+  $.ajax({
+      url: Shop.API_BASE_URL + "/carts/deleteCartItem/" + id,
+      method: "DELETE"
+  }).done(function (response) {
+      location.reload();
+      alert(response);
+  })
 },
 
 
@@ -122,3 +140,4 @@ Shop.getProducts();
 Shop.bindEvents();
 Shop.getCart();
 Shop.bindEmptyCart();
+Shop.bindCartDelete();

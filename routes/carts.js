@@ -51,4 +51,7 @@ router.get('/getCart', cartController.getCart);
 //Route to delete cart
 router.delete('/deleteCart', cartController.deleteCart);
 
+//Route to delete cart item
+router.delete('/deleteCartItem/:id', cartController.deleteCartItem);
+
 module.exports = router;
