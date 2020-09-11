@@ -28,3 +28,7 @@ GET http://localhost:3000/products/items
 ###
 
 DELETE http://localhost:3000/carts/deleteCartItem/5f48ae05d2940733f403fcd0
+
+###
+
+GET http://localhost:3000/products/categories/Laptop

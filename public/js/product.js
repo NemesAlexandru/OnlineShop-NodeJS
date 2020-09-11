@@ -24,6 +24,7 @@ window.Shop = {
       });
     },
 
+
     getCart: function () {
       $.ajax({
           url: Shop.API_BASE_URL + "/carts/getCart"
@@ -74,6 +75,30 @@ bindCartDelete: function(){
     Shop.deleteItem(id);
 })
 },
+
+//Working on this
+bindFilteredCat: function(){
+  $("#nav-dropdown-cat").delegate("#category-select", "click", function (event) {
+    event.preventDefault();
+    let category = $(this).data("category_id");
+    Shop.getFilteredCat(category);
+})
+},
+
+getFilteredCat: function(category){
+$.ajax({
+url: Shop.API_BASE_URL + "/products/categories/" + category
+}).done(function(response) {
+Shop.displayFilteredProd(response);
+})
+},
+
+displayFilteredProd: function(filteredProds){
+  let productsHtml = "";
+  filteredProds.forEach(oneProduct => productsHtml += Shop.getProductsHtml(oneProduct));
+  $(".flexbox-container").html(productsHtml);
+},
+
 
 deleteItem: function (id) {
   $.ajax({
@@ -150,6 +175,7 @@ deleteItem: function (id) {
 
 };
 
+Shop.bindFilteredCat();
 Shop.getProducts();
 Shop.bindEvents();
 Shop.getCart();

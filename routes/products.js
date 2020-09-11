@@ -64,6 +64,9 @@ if(errors.length > 0){
 //Route to display all products in product controller
 router.get('/items', productController.getAllProducts);
 
+//Route to display filtered categories
+router.get('/categories/:category', productController.getFilteredCat);
+
 
     module.exports = router
 
