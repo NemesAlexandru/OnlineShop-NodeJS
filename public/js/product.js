@@ -1,5 +1,5 @@
 window.Shop = {
-    API_BASE_URL: "http://localhost:3000",
+    API_BASE_URL: "https://shop-an3.herokuapp.com/",
 
     numberOfCartProducts: function (products) {
     const cartNoElement = document.querySelector('[data-item-number]');
@@ -76,7 +76,7 @@ bindCartDelete: function(){
 })
 },
 
-//Working on this
+
 bindFilteredCat: function(){
   $("#nav-dropdown-cat").delegate("#category-select", "click", function (event) {
     event.preventDefault();
