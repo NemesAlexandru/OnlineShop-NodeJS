@@ -1,5 +1,5 @@
 window.Shop = {
-    API_BASE_URL: "https://shop-an3.herokuapp.com/",
+    API_BASE_URL: "https://shop-an3.herokuapp.com",
 
     numberOfCartProducts: function (products) {
     const cartNoElement = document.querySelector('[data-item-number]');
