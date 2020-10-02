@@ -1,9 +1,17 @@
-﻿# OnlineShop-NodeJS
-![Capture8](https://user-images.githubusercontent.com/54545364/94903595-b43c5d00-04a2-11eb-8a41-41fdd0735773.PNG)
-![Capture1](https://user-images.githubusercontent.com/54545364/94903645-c7e7c380-04a2-11eb-8b68-bcb8b18a1d06.PNG)
-![Capture2](https://user-images.githubusercontent.com/54545364/94903655-cae2b400-04a2-11eb-8c3b-929d64fb71f8.PNG)
-![Capture3](https://user-images.githubusercontent.com/54545364/94903672-cfa76800-04a2-11eb-9748-18801c8b8015.PNG)
-![Capture4](https://user-images.githubusercontent.com/54545364/94903695-d504b280-04a2-11eb-92e8-fd113bd22e62.PNG)
-![Capture5](https://user-images.githubusercontent.com/54545364/94903704-d7ffa300-04a2-11eb-9df3-9fc46ac334a5.PNG)
-![Capture6](https://user-images.githubusercontent.com/54545364/94903709-d9c96680-04a2-11eb-9d08-d5fbc14b5143.PNG)
-![Capture7](https://user-images.githubusercontent.com/54545364/94903715-dafa9380-04a2-11eb-97d7-f98b7de6ebe4.PNG)
+
+![Capture8](https://user-images.githubusercontent.com/54545364/94904403-f31ee280-04a3-11eb-90fb-e2e6dc860b80.PNG)
+![CaptureLogin](https://user-images.githubusercontent.com/54545364/94904426-fc0fb400-04a3-11eb-9eca-e48038f20577.PNG)
+![CaptureReg](https://user-images.githubusercontent.com/54545364/94904457-0631b280-04a4-11eb-9bff-b7b5f64cd56f.PNG)
+![Capture1](https://user-images.githubusercontent.com/54545364/94904463-08940c80-04a4-11eb-89ae-5facf0970859.PNG)
+![CaptureProd](https://user-images.githubusercontent.com/54545364/94904492-121d7480-04a4-11eb-8939-a8f53dffe791.PNG)
+![Capture2](https://user-images.githubusercontent.com/54545364/94904495-13e73800-04a4-11eb-9b82-0f64bc3086d4.PNG)
+![Capture3](https://user-images.githubusercontent.com/54545364/94904503-15b0fb80-04a4-11eb-808c-db9d7b3015d1.PNG)
+![CaptureLogout](https://user-images.githubusercontent.com/54545364/94904513-1b0e4600-04a4-11eb-8f37-aa08cc794345.PNG)
+
+
+
+
+
+
+
+
