@@ -158,10 +158,10 @@ deleteItem: function (id) {
             </h4>
             <h5>$${product.price}</h5>
             <p class="font-weight-light">${product.description}</p>
-            <a href="#">${product.category}</a>
+            <a class="font-weight-light" href="#">${product.category}</a>
           </div>
           <div class="card-footer">
-            <p><button class="add-to-cart" data-product_id=${product._id} data-product_name=${product.name} data-product_price=${product.price}>Add to Cart</button></p>           
+            <p><button id="add-cart-btn" class="add-to-cart" data-product_id=${product._id} data-product_name=${product.name} data-product_price=${product.price}>Add to Cart</button></p>           
           </div>
         </div>
       </div>`

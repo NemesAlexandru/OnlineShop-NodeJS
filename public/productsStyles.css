@@ -7,17 +7,51 @@
   }
 
   .flexbox-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: flex; /* Make products flex in row direction (default) */
+    flex-wrap: wrap; /* Make products overflow on new row */
+    justify-content: space-around; /* Or center or space-around */
   }
 
   .col-lg-4 {
-    flex: 1 0 21%;
-    margin: 5px;
+  flex: 1 0 21%; /* Prevent the extra space around content */
+  text-align: center; /* Align text on center */
+  display: flex; /* Display as flex */
+  flex-direction: column; /* Display flex in column */
+  align-items: center; /* Align items on center */
+  /* Set max-width so the last items will behave in a more traditional way */
+  max-width: 240px;
   }
 
+  .card-footer {
+    max-height: 6 0px;
+  }
+
+  #add-cart-btn {
+    max-width: 100px;
+    max-height: 40px;
+    font-size: small;
+  }
+
+  .col-lg-4 .card-img-top {
+    /* max-width:100%;
+    height:auto; */
+    width: 200px;
+    height: 190px;
+    margin-top: 10px;
+    
+  }
+
+  .col-lg-4 .card-body {
+    margin-top: auto;
+  }
+
+  .col-lg-4 .card-body .font-weight-light {
+    font-size: 15px;
+  }
+  
+
   .register-item {
+    font-size: small;
     margin-left: 10px;
     width: 80px;
     background-color: white;
@@ -26,7 +60,7 @@
 
   .add-to-cart {
     background-color: white;
-    box-shadow: 5px 9px rgb(200, 172, 245)
+    box-shadow: 5px 9px rgb(200, 172, 245);
   }
 
   .add-to-cart:hover {
@@ -41,10 +75,6 @@
     color: black;
   }
   
-  .card {
-    max-width: 300px;
-    margin: auto;
-  }
 
   .card:hover {
     box-shadow: 0px 2px 30px -10px rgb(125, 45, 255)
